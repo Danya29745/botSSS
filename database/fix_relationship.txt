@@ -1,0 +1,13 @@
+# Замените только блок relationship в модели User:
+
+referrer_user = relationship(
+    "User",
+    remote_side=[id],
+    foreign_keys=[referred_by],
+    back_populates="referrals"
+)
+
+referrals = relationship(
+    "User",
+    back_populates="referrer_user"
+)
